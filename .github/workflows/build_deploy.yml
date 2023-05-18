@@ -2,13 +2,11 @@ name: Build & Deploy
 
 
 on:
-  push:
-    branches: [main]
-    paths: ['pyproject.toml']
   pull_request:
     branches: [main]
     paths: ['pyproject.toml']
     types: [closed]
+  workflow_dispatch:
 
 jobs:
 
