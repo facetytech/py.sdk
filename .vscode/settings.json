@@ -1,0 +1,92 @@
+{
+    "gitlens.autolinks": [
+        {
+            "prefix": "#",
+            "url": "$GIT_HOME_URL/issues/<num>"
+        }
+    ],
+    "autoDocstring.quoteStyle": "'''",
+    "autoDocstring.startOnNewLine": false,
+    "autoDocstring.docstringFormat": "google-notypes",
+
+    "python.envFile": "${workspaceFolder}/.env",
+
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
+        "WORKDIR": "${workspaceFolder}"
+    },
+    "terminal.integrated.profiles.linux": {
+        "local": {
+            "path": "bash",
+            "icon": "terminal",
+            "args": [
+                "-c",
+                "if [ -e .env ]; then export `cat .env`; fi; if [ -e .vscode/.env ]; then export `cat .vscode/.env`; fi; bash"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "local",
+    "cSpell.words": [
+        "asgi",
+        "asgiref",
+        "Asyncio",
+        "camelcase",
+        "closefd",
+        "Comfortaa",
+        "crossorigin",
+        "DEVPATH",
+        "docstrings",
+        "facety",
+        "Firestore",
+        "glightbox",
+        "hypercorn",
+        "inlinehilite",
+        "ipykernel",
+        "ipynb",
+        "isabstractmethod",
+        "jupyterlab",
+        "layouter",
+        "linenums",
+        "LITERA",
+        "mccabe",
+        "metageneration",
+        "metatag",
+        "metatags",
+        "mkdocs",
+        "mkdocstrings",
+        "multicloud",
+        "multipage",
+        "mypy",
+        "omnicloud",
+        "Plotly",
+        "pycodestyle",
+        "pylint",
+        "pyproject",
+        "pyyaml",
+        "qualname",
+        "scandir",
+        "setuptools",
+        "skipkeys",
+        "SPACELAB",
+        "subpackages",
+        "supercloud",
+        "venv",
+        "wght",
+        "workdir",
+        "wsgi"
+    ],
+    "cSpell.ignorePaths": [
+        "poetry.lock",
+        ".gitignore",
+        ".git/objects",
+        ".vscode/**",
+        ".github/**"
+    ],
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.analysis.ignore": [
+        "**/*.ipynb"
+    ],
+    "python.linting.enabled": true
+
+}

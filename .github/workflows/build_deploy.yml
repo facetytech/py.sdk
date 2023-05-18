@@ -1,0 +1,49 @@
+name: Build & Deploy
+
+
+on:
+  push:
+    branches: [main]
+    paths: ['pyproject.toml']
+  pull_request:
+    branches: [main]
+    paths: ['pyproject.toml']
+    types: [closed]
+
+jobs:
+
+  flake8-lint:
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+
+      - name: Check out source repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: flake8 Lint
+        uses: py-actions/flake8@v2.2.1
+        with:
+          path: "facety"
+          plugins: >
+            flake8-docstrings
+            flake8-bugbear
+            flake8-black
+            pep8-naming
+            flake8-pyproject
+
+  build-and-deploy:
+    needs: flake8-lint
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+
+    - name: omnicloud ci step
+      uses: omnicloudworld/ci/python/poetry2pypi@v0.0.2
+      with:
+        pypi-token: ${{ secrets.PYPI_TOKEN }}

@@ -1,0 +1,79 @@
+[tool.poetry]
+
+name = "facety"
+version = "0.0.0dev0"
+description = "Facety Python SDK"
+keywords = []
+authors = ["Iurii Tarasenko <iurii@facety.tech>"]
+readme = "README.md"
+packages = [{include = "facety"}]
+
+homepage = "https://developers.facety.tech"
+repository = "https://github.com/facetytech/py.sdk"
+
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License"
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+
+[tool.poetry.group.dev.dependencies]
+duty = "^0.9.0"
+ipykernel = "^6.22.0"
+pyyaml = "^6.0"
+pyyaml-env-tag = "^0.1"
+flake8 = "^6.0.0"
+flake8-docstrings = "^1.7.0"
+pep8-naming = "^0.13.3"
+flake8-bugbear = "^23.5.9"
+flake8-pyproject = "^1.2.3"
+jedi = "^0.18.2"
+black = "^23.3.0"
+pre-commit = "^3.3.1"
+
+
+
+[tool.flake8]
+ignore = ['D300']
+per-file-ignores = [
+]
+max-line-length = 115
+count = true
+docstring-convention = "google"
+
+
+[tool.black]
+line-length = 115
+target-version = ['py310', 'py311']
+include = '\.py?$'
+skip-string-normalization = true
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | \.docs
+  | \.github
+  | \.lab
+  | \.vscode
+)/
+'''
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

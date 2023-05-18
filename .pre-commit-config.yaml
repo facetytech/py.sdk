@@ -1,0 +1,18 @@
+repos:
+-   repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+    - id: black
+      language_version: python3.10
+-   repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+    - id: flake8
+      additional_dependencies:
+        - flake8-docstrings
+        - flake8-pyproject
+        - pep8-naming
+        - flake8-bugbear
+        - pycodestyle
+        - mccabe
+      args: [--toml-config=pyproject.toml]
