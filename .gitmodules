@@ -1,0 +1,3 @@
+[submodule "proto"]
+	path = facety/_grpc/public
+	url = https://github.com/facetytech/proto.git

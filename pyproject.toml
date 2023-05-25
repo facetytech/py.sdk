@@ -22,28 +22,38 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
+grpcio = "^1.54.0"
+protobuf = "^4.22.3"
+google-auth = "^2.17.3"
+requests = "^2.30.0"
 
 
 [tool.poetry.group.dev.dependencies]
 duty = "^0.9.0"
 ipykernel = "^6.22.0"
-pyyaml = "^6.0"
-pyyaml-env-tag = "^0.1"
+pylint = "^2.17.0"
 flake8 = "^6.0.0"
 flake8-docstrings = "^1.7.0"
 pep8-naming = "^0.13.3"
 flake8-bugbear = "^23.5.9"
 flake8-pyproject = "^1.2.3"
+pyproject-flake8 = "^6.0.0.post1"
 jedi = "^0.18.2"
 black = "^23.3.0"
 pre-commit = "^3.3.1"
+keyring = "^23.13.1"
+grpcio-tools = "^1.54.0"
+pytest = "^7.3.1"
 
 
 
 [tool.flake8]
-ignore = ['D300']
-per-file-ignores = [
+ignore = [
+    "D202", # No blank lines allowed after function docstring
+    "D300", # Use """triple double quotes""" (found '''-quotes)
 ]
+per-file-ignores = "**/*_test.py:D107,D101,D102,N802"
+exclude = ["**/*_pb2*.py", "**/*_pb2.py"]
 max-line-length = 115
 count = true
 docstring-convention = "google"
@@ -52,25 +62,34 @@ docstring-convention = "google"
 [tool.black]
 line-length = 115
 target-version = ['py310', 'py311']
-include = '\.py?$'
+include = '\.pyi?$'
 skip-string-normalization = true
 exclude = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-  | \.docs
-  | \.github
-  | \.lab
-  | \.vscode
-)/
+    _build |
+    buck-out |
+    build |
+    dist |
+    \.git |
+    \.hg |
+    \.mypy_cache |
+    \.tox |
+    \.venv |
+    \.docs |
+    \.github |
+    \.lab |
+    \.vscode |
+    \.pytest_cache |
+    .*_pb2.*\.py
 '''
+
+[tool.isort]
+line-length = 115
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "-s"
+]
 
 
 [build-system]

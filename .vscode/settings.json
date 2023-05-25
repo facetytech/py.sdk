@@ -27,6 +27,9 @@
     },
     "terminal.integrated.defaultProfile.linux": "local",
     "cSpell.words": [
+        "accesstoken",
+        "addfinalizer",
+        "addopts",
         "asgi",
         "asgiref",
         "Asyncio",
@@ -38,12 +41,16 @@
         "docstrings",
         "facety",
         "Firestore",
+        "gcloud",
         "glightbox",
+        "grpcio",
         "hypercorn",
+        "importlib",
         "inlinehilite",
         "ipykernel",
         "ipynb",
         "isabstractmethod",
+        "isort",
         "jupyterlab",
         "layouter",
         "linenums",
@@ -59,9 +66,12 @@
         "mypy",
         "omnicloud",
         "Plotly",
+        "protobuf",
+        "protoc",
         "pycodestyle",
         "pylint",
         "pyproject",
+        "pytest",
         "pyyaml",
         "qualname",
         "scandir",
@@ -87,6 +97,8 @@
     "python.analysis.ignore": [
         "**/*.ipynb"
     ],
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "cSpell.spellCheckOnlyWorkspaceFiles": true,
 
+    "isort.args": ["-l", "115"],
 }
