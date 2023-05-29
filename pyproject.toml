@@ -21,7 +21,7 @@ classifiers = [
 
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<3.12"  # mkdocs-include-markdown-plugin requires Python <3.12,>=3.7
 grpcio = "^1.54.0"
 protobuf = "^4.22.3"
 google-auth = "^2.17.3"
@@ -44,7 +44,19 @@ pre-commit = "^3.3.1"
 keyring = "^23.13.1"
 grpcio-tools = "^1.54.0"
 pytest = "^7.3.1"
+omnicloud-tools = "^0.0.1"
 
+
+
+[tool.poetry.group.mkdocs.dependencies]
+mkdocs = "^1.4.3"
+mkdocs-material = "^9.1.14"
+mkdocs-include-markdown-plugin = "^4.0.4"
+mkdocs-section-index = "^0.3.5"
+mkdocs-glightbox = "^0.3.4"
+mkdocs-same-dir = "^0.1.2"
+mkdocstrings = "^0.21.2"
+mkdocstrings-python = "^1.0.0"
 
 
 [tool.flake8]
@@ -52,7 +64,10 @@ ignore = [
     "D202", # No blank lines allowed after function docstring
     "D300", # Use """triple double quotes""" (found '''-quotes)
 ]
-per-file-ignores = "**/*_test.py:D107,D101,D102,N802"
+per-file-ignores = [
+    "**/*_test.py:D107,D101,D102,N802",  # docstrings
+    "duties.py:F401,F403"  # wilcard import
+]
 exclude = ["**/*_pb2*.py", "**/*_pb2.py"]
 max-line-length = 115
 count = true

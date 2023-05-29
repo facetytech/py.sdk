@@ -6,27 +6,6 @@ repos:
       language_version: python3.10
       args:
         - '--config=pyproject.toml'
-        - '--include=\.pyi?$'
-        - '--line-length=115'
-        - '--skip-string-normalization'
-        - '--color'
-        - >
-          --force-exclude=
-          .*_pb2.*\.py$ |
-          _build |
-          buck-out |
-          build |
-          dist |
-          \.git |
-          \.hg |
-          \.mypy_cache |
-          \.tox |
-          \.venv |
-          \.docs |
-          \.github |
-          \.lab |
-          \.vscode |
-          \.pytest_cache
 
 -   repo: https://github.com/PyCQA/flake8
     rev: 6.0.0

@@ -3,6 +3,8 @@
 from duty import duty
 from os import walk, path
 
+from omnicloud.tools.duty.mkdocs import *
+
 
 @duty
 def make_pb2(ctx):

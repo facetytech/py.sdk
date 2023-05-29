@@ -1,0 +1,111 @@
+
+nav:
+
+    - 'HOME': index.md
+    - 'AGREEMENTS': agreements.md
+    - 'TOOLS':
+        - tools/index.md
+        - 'gRPC': tools/grpc.md
+    - 'DEVELOPMENT':
+        - dev/index.md
+
+
+site_name: Facety SDK
+repo_url: https://github.com/facetytech/py.sdk
+repo_name: facetytech/py.sdk
+
+
+
+
+
+
+###
+#  Template
+###
+
+
+docs_dir: .
+edit_uri: ""
+
+
+extra:
+
+    generator: true
+    homepage: https://docs.facety.tech
+    #analytics:
+    #    provider: google
+    #    property: G-1R41YK6WT2
+
+    social:
+        
+        - icon: fontawesome/brands/square-facebook
+          link: https://facebook.com/facetytech
+          name: facebook
+        
+        - icon: fontawesome/brands/linkedin
+          link: https://linkedin.com/company/facetytech
+          name: linkedin
+
+        - icon: fontawesome/solid/house
+          link: https://developars.facety.tech
+          name: home
+
+
+theme: 
+    name: material
+    favicon: https://static.omnicloud.world/common/img/icons/omni-color02.png
+    logo: https://static.omnicloud.world/common/img/icons/omni.drawio.png
+    palette:
+        primary: purple
+        accent: orange
+    font:
+        text: Montserrat
+        code: Comfortaa
+    icon:
+        repo: fontawesome/brands/github
+    features:
+        - search.highlight
+        - search.suggest
+        - navigation.tabs
+        - content.code.annotate
+        - content.tabs.link
+
+
+extra_css:
+    - https://static.omnicloud.world/common/css/mkdocs/main.css
+    - https://static.omnicloud.world/common/css/mkdocs/hide-title.css
+
+
+plugins:
+    - mkdocstrings:
+        handlers:
+            python:
+                options:
+                    show_source: true
+                    show_root_full_path: false
+                    show_root_toc_entry: false
+                    show_bases: false
+                    show_category_heading: false
+    - search
+    - section-index
+    - glightbox
+    - include-markdown
+    - same-dir
+
+
+markdown_extensions:
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - admonition
+    - pymdownx.details
+    - footnotes
+    - attr_list
+    - pymdownx.tabbed:
+        alternate_style: true 
+    - md_in_html
+    - def_list
+    - pymdownx.tasklist:
+        custom_checkbox: true
