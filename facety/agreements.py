@@ -121,17 +121,17 @@ class AdoptionClient(_AgreementsClient):
             **kwargs,
         )
 
-    def add_remark(self, remark: messages.Remark | dict, *args, **kwargs) -> None:
+    def add_remark(self, new: messages.NewRemark | dict, *args, **kwargs) -> None:
         '''Add a remark.
 
         Adds a country remark using the provided remark object or dictionary.
 
         Args:
-            remark (NewRemark | dict): The remark to add. It can be an instance of NewRemark class
+            new (NewRemark | dict): The remark to add. It can be an instance of NewRemark class
                 or a dictionary representing the remark.
         '''
 
-        request = _request_normaliser(remark, messages.Remark)
+        request = _request_normaliser(new, messages.NewRemark)
 
         return _get_message(
             host=self.host,

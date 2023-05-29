@@ -12,9 +12,10 @@ class AdoptionStub(object):
     The service provide the feature for verification user's status of accepting Legal Agreements
     and logging of accepting it.
 
-    It contains two methods:
+    It contains three methods:
     - CheckProtocol - for verification of status of accepting Legal Agreements
     - AddProtocol - for adding new record about Legal Agreements was accepted
+    - AddRemark - for adding new record about Country Remark was accepted
     """
 
     def __init__(self, channel):
@@ -35,7 +36,7 @@ class AdoptionStub(object):
                 )
         self.AddRemark = channel.unary_unary(
                 '/Adoption/AddRemark',
-                request_serializer=facety_dot___grpc_dot_agreements__pb2.Remark.SerializeToString,
+                request_serializer=facety_dot___grpc_dot_agreements__pb2.NewRemark.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
 
@@ -46,9 +47,10 @@ class AdoptionServicer(object):
     The service provide the feature for verification user's status of accepting Legal Agreements
     and logging of accepting it.
 
-    It contains two methods:
+    It contains three methods:
     - CheckProtocol - for verification of status of accepting Legal Agreements
     - AddProtocol - for adding new record about Legal Agreements was accepted
+    - AddRemark - for adding new record about Country Remark was accepted
     """
 
     def CheckProtocol(self, request, context):
@@ -85,9 +87,9 @@ class AdoptionServicer(object):
         """Adding a new record about Country Remark was accepted.
 
         Args:
-        Remark - contains information about:
-        - version, hash and country of Country Remark;
-        - id of a protocol added to.
+        NewRemark - contains information about:
+        - remark contains Country Remark object;
+        - owner is ID of a protocol added to.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -108,7 +110,7 @@ def add_AdoptionServicer_to_server(servicer, server):
             ),
             'AddRemark': grpc.unary_unary_rpc_method_handler(
                     servicer.AddRemark,
-                    request_deserializer=facety_dot___grpc_dot_agreements__pb2.Remark.FromString,
+                    request_deserializer=facety_dot___grpc_dot_agreements__pb2.NewRemark.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
@@ -124,9 +126,10 @@ class Adoption(object):
     The service provide the feature for verification user's status of accepting Legal Agreements
     and logging of accepting it.
 
-    It contains two methods:
+    It contains three methods:
     - CheckProtocol - for verification of status of accepting Legal Agreements
     - AddProtocol - for adding new record about Legal Agreements was accepted
+    - AddRemark - for adding new record about Country Remark was accepted
     """
 
     @staticmethod
@@ -175,7 +178,7 @@ class Adoption(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Adoption/AddRemark',
-            facety_dot___grpc_dot_agreements__pb2.Remark.SerializeToString,
+            facety_dot___grpc_dot_agreements__pb2.NewRemark.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

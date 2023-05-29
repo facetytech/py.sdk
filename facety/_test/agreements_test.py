@@ -13,11 +13,21 @@ PORT = 2002
 
 class AdoptionServicer(services.AdoptionServicer):
     def CheckProtocol(self, request, context):
-        tos = messages.VerdictTos(status=True, comment='sss')
-        pp = messages.VerdictPp(status=False, comment='ddd')
-        remark = messages.VerdictRemark(status=False, comment='fff')
+        verdict = messages.Verdict()
 
-        return messages.Verdict(tos=tos, pp=pp, remark=remark)
+        tos = verdict.tos
+        tos.status = True
+        tos.comment = 'sss'
+
+        pp = verdict.pp
+        pp.status = False
+        pp.comment = 'ddd'
+
+        remark = verdict.remark
+        remark.status = True
+        remark.comment = 'fff'
+
+        return verdict
 
     def AddProtocol(self, request, context):
         return messages.Selector(id='aaa')
@@ -28,11 +38,26 @@ class AdoptionServicer(services.AdoptionServicer):
 
 class ReceivingServicer(services.ReceivingServicer):
     def Texts(self, request, context):
-        tos = messages.AgreementsTos(text='tos', version='1', hash='h', lang='fr')
-        pp = messages.AgreementsPp(text='tos', version='1', hash='h', lang='fr')
-        remarks = [messages.AgreementsRemark(text='tos', version='1', hash='h')]
+        agreements = messages.Agreements()
 
-        return messages.Agreements(tos=tos, pp=pp, remarks=remarks)
+        tos = agreements.tos
+        tos.text = 'tos'
+        tos.version = '1'
+        tos.hash = 'h'
+        tos.lang = 'fr'
+
+        pp = agreements.pp
+        pp.text = 'tos'
+        pp.version = '1'
+        pp.hash = 'h'
+        pp.lang = 'fr'
+
+        remarks = agreements.remarks.add()
+        remarks.text = 'tos'
+        remarks.version = '1'
+        remarks.hash = 'h'
+
+        return agreements
 
 
 class MygRPC:
@@ -72,15 +97,37 @@ class TestAdoption:
         timestamp = Ts()
         timestamp.FromDatetime(dt.now())
 
-        tos = messages.ProtocolTos(version='1', hash='hash', lang='fr')
-        pp = messages.ProtocolPp(version='1', hash='hash', lang='de')
-        remark = messages.ProtocolRemark(version='1', hash='hash', country='FR')
+        protocol = messages.Protocol()
 
-        adoption_client.add_protocol(
-            protocol=messages.Protocol(
-                tos=tos, pp=pp, remarks=[remark], headers={'h1': 'v1', 'h2': 'v2'}, previously='prev'
-            )
-        )
+        protocol.previously = 'prev'
+
+        h1 = protocol.headers.add()
+        h1.key = 'h1'
+        h1.value = 'v1'
+
+        h2 = protocol.headers.add()
+        h2.key = 'h2'
+        h2.value = 'v2'
+
+        tos = protocol.tos
+        tos.version = '1'
+        tos.hash = 'hash'
+        tos.lang = 'fr'
+        tos.timestamp.CopyFrom(timestamp)
+
+        pp = protocol.pp
+        pp.version = '1'
+        pp.hash = 'hash'
+        pp.lang = 'de'
+        pp.timestamp.CopyFrom(timestamp)
+
+        remark = protocol.remarks.add()
+        remark.version = '1'
+        remark.hash = 'hash'
+        remark.country = 'FR'
+        remark.timestamp.CopyFrom(timestamp)
+
+        adoption_client.add_protocol(protocol=protocol)
 
     def test_check_protocol(self, grpc_server):
         '''Testing the check_protocol method.'''
@@ -93,9 +140,17 @@ class TestAdoption:
         timestamp = Ts()
         timestamp.FromDatetime(dt.now())
 
-        remark = messages.ProtocolRemark(version='1', hash='hash', country='FR', timestamp=timestamp)
+        new = messages.NewRemark()
+        new.owner = 'owner'
 
-        adoption_client.add_remark(messages.Remark(id='id', remark=remark))
+        protocol = new.remark
+
+        protocol.version = '1'
+        protocol.hash = 'hash'
+        protocol.country = 'FR'
+        protocol.timestamp.CopyFrom(timestamp)
+
+        adoption_client.add_remark(new=new)
 
 
 class TestReceiving:  # noqa: D101
@@ -110,4 +165,10 @@ class TestReceiving:  # noqa: D101
     def test_texts(self, grpc_server):
         '''Testing the texts method.'''
 
-        receiving_client.get_texts(messages.User(protocol='aaa', langs=['fr', 'de'], country='UA'))
+        user = messages.User()
+        user.protocol = 'aaa'
+        user.country = 'UA'
+
+        user.langs.extend(['fr', 'de'])
+
+        receiving_client.get_texts(user=user)

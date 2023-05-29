@@ -15,51 +15,47 @@ from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x66\x61\x63\x65ty/_grpc/agreements.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x16\n\x08Selector\x12\n\n\x02id\x18\x01 \x01(\t\"5\n\x06Remark\x12\n\n\x02id\x18\x01 \x01(\t\x12\x1f\n\x06remark\x18\x02 \x01(\x0b\x32\x0f.ProtocolRemark\"-\n\nVerdictTos\x12\x0e\n\x06status\x18\x01 \x01(\x08\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\",\n\tVerdictPp\x12\x0e\n\x06status\x18\x01 \x01(\x08\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\"0\n\rVerdictRemark\x12\x0e\n\x06status\x18\x01 \x01(\x08\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\"|\n\x07Verdict\x12\x18\n\x03tos\x18\x01 \x01(\x0b\x32\x0b.VerdictTos\x12\x16\n\x02pp\x18\x02 \x01(\x0b\x32\n.VerdictPp\x12\x1e\n\x06remark\x18\x03 \x01(\x0b\x32\x0e.VerdictRemark\x12\x1f\n\nagreements\x18\x04 \x01(\x0b\x32\x0b.Agreements\"\x19\n\x07Version\x12\x0e\n\x06number\x18\x01 \x01(\t\"i\n\x0bProtocolTos\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12-\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"h\n\nProtocolPp\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12-\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x0eProtocolRemark\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x03 \x01(\t\x12-\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xcd\x01\n\x08Protocol\x12\x19\n\x03tos\x18\x01 \x01(\x0b\x32\x0c.ProtocolTos\x12\x17\n\x02pp\x18\x02 \x01(\x0b\x32\x0b.ProtocolPp\x12 \n\x07remarks\x18\x03 \x03(\x0b\x32\x0f.ProtocolRemark\x12\'\n\x07headers\x18\x04 \x03(\x0b\x32\x16.Protocol.HeadersEntry\x12\x12\n\npreviously\x18\x05 \x01(\t\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"8\n\x04User\x12\x10\n\x08protocol\x18\x01 \x01(\t\x12\r\n\x05langs\x18\x02 \x03(\t\x12\x0f\n\x07\x63ountry\x18\x03 \x01(\t\"J\n\rAgreementsTos\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x0c\n\x04hash\x18\x03 \x01(\t\x12\x0c\n\x04lang\x18\x04 \x01(\t\"I\n\x0c\x41greementsPp\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x0c\n\x04hash\x18\x03 \x01(\t\x12\x0c\n\x04lang\x18\x04 \x01(\t\"?\n\x10\x41greementsRemark\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x0c\n\x04hash\x18\x03 \x01(\t\"h\n\nAgreements\x12\x1b\n\x03tos\x18\x01 \x01(\x0b\x32\x0e.AgreementsTos\x12\x19\n\x02pp\x18\x02 \x01(\x0b\x32\r.AgreementsPp\x12\"\n\x07remarks\x18\x03 \x03(\x0b\x32\x11.AgreementsRemark2\x89\x01\n\x08\x41\x64option\x12&\n\rCheckProtocol\x12\t.Selector\x1a\x08.Verdict\"\x00\x12%\n\x0b\x41\x64\x64Protocol\x12\t.Protocol\x1a\t.Selector\"\x00\x12.\n\tAddRemark\x12\x07.Remark\x1a\x16.google.protobuf.Empty\"\x00\x32*\n\tReceiving\x12\x1d\n\x05Texts\x12\x05.User\x1a\x0b.Agreements\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x66\x61\x63\x65ty/_grpc/agreements.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x16\n\x08Selector\x12\n\n\x02id\x18\x01 \x01(\t\"<\n\tNewRemark\x12\r\n\x05owner\x18\x01 \x01(\t\x12 \n\x06remark\x18\x02 \x01(\x0b\x32\x10.Protocol.Remark\"\xf9\x01\n\x07Verdict\x12\x19\n\x03tos\x18\x01 \x01(\x0b\x32\x0c.Verdict.Tos\x12\x17\n\x02pp\x18\x02 \x01(\x0b\x32\x0b.Verdict.Pp\x12\x1f\n\x06remark\x18\x03 \x01(\x0b\x32\x0f.Verdict.Remark\x12\x1f\n\nagreements\x18\x04 \x01(\x0b\x32\x0b.Agreements\x1a&\n\x03Tos\x12\x0e\n\x06status\x18\x01 \x01(\x08\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\x1a%\n\x02Pp\x12\x0e\n\x06status\x18\x01 \x01(\x08\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\x1a)\n\x06Remark\x12\x0e\n\x06status\x18\x01 \x01(\x08\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\"\xee\x03\n\x08Protocol\x12\x1a\n\x03tos\x18\x01 \x01(\x0b\x32\r.Protocol.Tos\x12\x18\n\x02pp\x18\x02 \x01(\x0b\x32\x0c.Protocol.Pp\x12!\n\x07remarks\x18\x03 \x03(\x0b\x32\x10.Protocol.Remark\x12!\n\x07headers\x18\x04 \x03(\x0b\x32\x10.Protocol.Header\x12\x12\n\npreviously\x18\x05 \x01(\t\x1a\x61\n\x03Tos\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12-\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a`\n\x02Pp\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x0c\n\x04lang\x18\x03 \x01(\t\x12-\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1ag\n\x06Remark\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x03 \x01(\t\x12-\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a$\n\x06Header\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"8\n\x04User\x12\x10\n\x08protocol\x18\x01 \x01(\t\x12\r\n\x05langs\x18\x02 \x03(\t\x12\x0f\n\x07\x63ountry\x18\x03 \x01(\t\"\xa5\x02\n\nAgreements\x12\x1c\n\x03tos\x18\x01 \x01(\x0b\x32\x0f.Agreements.Tos\x12\x1a\n\x02pp\x18\x02 \x01(\x0b\x32\x0e.Agreements.Pp\x12#\n\x07remarks\x18\x03 \x03(\x0b\x32\x12.Agreements.Remark\x1a@\n\x03Tos\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x0c\n\x04hash\x18\x03 \x01(\t\x12\x0c\n\x04lang\x18\x04 \x01(\t\x1a?\n\x02Pp\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x0c\n\x04hash\x18\x03 \x01(\t\x12\x0c\n\x04lang\x18\x04 \x01(\t\x1a\x35\n\x06Remark\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x0c\n\x04hash\x18\x03 \x01(\t2\x8c\x01\n\x08\x41\x64option\x12&\n\rCheckProtocol\x12\t.Selector\x1a\x08.Verdict\"\x00\x12%\n\x0b\x41\x64\x64Protocol\x12\t.Protocol\x1a\t.Selector\"\x00\x12\x31\n\tAddRemark\x12\n.NewRemark\x1a\x16.google.protobuf.Empty\"\x00\x32*\n\tReceiving\x12\x1d\n\x05Texts\x12\x05.User\x1a\x0b.Agreements\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'facety._grpc.agreements_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _PROTOCOL_HEADERSENTRY._options = None
-  _PROTOCOL_HEADERSENTRY._serialized_options = b'8\001'
   _SELECTOR._serialized_start=95
   _SELECTOR._serialized_end=117
-  _REMARK._serialized_start=119
-  _REMARK._serialized_end=172
-  _VERDICTTOS._serialized_start=174
-  _VERDICTTOS._serialized_end=219
-  _VERDICTPP._serialized_start=221
-  _VERDICTPP._serialized_end=265
-  _VERDICTREMARK._serialized_start=267
-  _VERDICTREMARK._serialized_end=315
-  _VERDICT._serialized_start=317
-  _VERDICT._serialized_end=441
-  _VERSION._serialized_start=443
-  _VERSION._serialized_end=468
-  _PROTOCOLTOS._serialized_start=470
-  _PROTOCOLTOS._serialized_end=575
-  _PROTOCOLPP._serialized_start=577
-  _PROTOCOLPP._serialized_end=681
-  _PROTOCOLREMARK._serialized_start=683
-  _PROTOCOLREMARK._serialized_end=794
-  _PROTOCOL._serialized_start=797
-  _PROTOCOL._serialized_end=1002
-  _PROTOCOL_HEADERSENTRY._serialized_start=956
-  _PROTOCOL_HEADERSENTRY._serialized_end=1002
-  _USER._serialized_start=1004
-  _USER._serialized_end=1060
-  _AGREEMENTSTOS._serialized_start=1062
-  _AGREEMENTSTOS._serialized_end=1136
-  _AGREEMENTSPP._serialized_start=1138
-  _AGREEMENTSPP._serialized_end=1211
-  _AGREEMENTSREMARK._serialized_start=1213
-  _AGREEMENTSREMARK._serialized_end=1276
-  _AGREEMENTS._serialized_start=1278
-  _AGREEMENTS._serialized_end=1382
-  _ADOPTION._serialized_start=1385
-  _ADOPTION._serialized_end=1522
-  _RECEIVING._serialized_start=1524
-  _RECEIVING._serialized_end=1566
+  _NEWREMARK._serialized_start=119
+  _NEWREMARK._serialized_end=179
+  _VERDICT._serialized_start=182
+  _VERDICT._serialized_end=431
+  _VERDICT_TOS._serialized_start=311
+  _VERDICT_TOS._serialized_end=349
+  _VERDICT_PP._serialized_start=351
+  _VERDICT_PP._serialized_end=388
+  _VERDICT_REMARK._serialized_start=390
+  _VERDICT_REMARK._serialized_end=431
+  _PROTOCOL._serialized_start=434
+  _PROTOCOL._serialized_end=928
+  _PROTOCOL_TOS._serialized_start=590
+  _PROTOCOL_TOS._serialized_end=687
+  _PROTOCOL_PP._serialized_start=689
+  _PROTOCOL_PP._serialized_end=785
+  _PROTOCOL_REMARK._serialized_start=787
+  _PROTOCOL_REMARK._serialized_end=890
+  _PROTOCOL_HEADER._serialized_start=892
+  _PROTOCOL_HEADER._serialized_end=928
+  _USER._serialized_start=930
+  _USER._serialized_end=986
+  _AGREEMENTS._serialized_start=989
+  _AGREEMENTS._serialized_end=1282
+  _AGREEMENTS_TOS._serialized_start=1098
+  _AGREEMENTS_TOS._serialized_end=1162
+  _AGREEMENTS_PP._serialized_start=1164
+  _AGREEMENTS_PP._serialized_end=1227
+  _AGREEMENTS_REMARK._serialized_start=1229
+  _AGREEMENTS_REMARK._serialized_end=1282
+  _ADOPTION._serialized_start=1285
+  _ADOPTION._serialized_end=1425
+  _RECEIVING._serialized_start=1427
+  _RECEIVING._serialized_end=1469
 # @@protoc_insertion_point(module_scope)
